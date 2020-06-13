@@ -3,46 +3,46 @@ import './App.scss';
 import Background from '../src/images/background.jpeg'
 import {TweenMax, Power3, Power2, TimelineLite} from 'gsap';
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
-
+import Effect from '../src/images/background-effect.jpeg';
 
 function App() {
   let articleRef = useRef(null);
   let buttonRef = useRef(null);
   let imageReveal = CSSRulePlugin.getRule('.black-square:after')
   let image = useRef(null);
+  let effect = useRef(null);
   let main = useRef(null);
   const [state, setState] = useState(false);
 
   const tl = new TimelineLite();
-
+  const tl2 = new TimelineLite();
     useEffect(() => {
-
-      tl.to(imageReveal, 1.4, {width: "0%", ease:Power2.easeInOut})
-      .from (image, 1.4, {scale: 0.5, ease: Power2.easeOut, delay: -1})
+      tl.to(main, 1, {css: {visibility: "visible"}})
+      .to(imageReveal, 1.4, {width: "0%", ease:Power2.easeInOut})
+      .from (image, 1.4, {scale: 2, ease: Power2.easeOut})
       .from(articleRef, 1, {opacity: 0, x:200, ease: Power3.easeOut, delay: -.4})
       .from(buttonRef, 1, {opacity: 0, x: -400, ease: Power3.easeOut, delay: -.4})
+      tl2.to(effect, 1.1, {opacity: 1, ease: Power2.easeOut, delay: 3.1})
     },[])
 
     const handleExpand = () => {
       TweenMax.to(
-        buttonRef,
-        1,
+        effect,
+        .8,
         {
-          width: 350,
-          height: 50,
-          ease: Power3.easeInOut
+          opacity: 0,
+          ease: Power2.easeInOut
         }
       )
       setState(true)
     }
     const handleShrink = () => {
       TweenMax.to(
-        buttonRef,
+        effect,
         1,
         {
-          width: 288,
-          height: 21,
-          ease: Power3.easeInOut
+          opacity: 1,
+          ease: Power2.easeInOut
         }
       )
       setState(false)
@@ -51,7 +51,7 @@ function App() {
   return (
     <div 
     className="App">
-      <div 
+      <div
       ref = {el => main = el}
       className="main">
         <div className="first-container">
@@ -69,6 +69,10 @@ function App() {
             ref = {el => image = el} 
             className = "background"
             src={Background} />
+             <img
+            ref = {el => effect = el} 
+            className = "background-effect"
+            src={Effect} />
             </div>
           </div>
       </div>

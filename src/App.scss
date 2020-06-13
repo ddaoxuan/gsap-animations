@@ -1,7 +1,9 @@
 .App{
   background-color: #000000; 
 }
-
+.main{
+  visibility: hidden;
+}
 h1, .navbar{
   width: 100%;
   color: white;
@@ -60,5 +62,11 @@ button{
     width: 80vw;
  
   }
-  
+  .background-effect{
+    top: 2vw;
+    position: absolute;
+    height: 90vh;
+    width: 80vw;
+    opacity: 0;
+  }
 }
