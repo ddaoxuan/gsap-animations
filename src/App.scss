@@ -1,0 +1,64 @@
+.App{
+  background-color: #000000; 
+}
+
+h1, .navbar{
+  width: 100%;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+}
+
+.first-container{
+  width: 100vw;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: absolute;
+  z-index: 5;
+}
+.article-container{
+  margin-left: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+article{
+  width: 30vw;
+}
+button{
+  width: 15vw;
+}
+.image-container{
+  width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+.black-square{
+  width: 80vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  &:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+  }
+  .background{
+    top: 2vw;
+    position: absolute;
+    height: 90vh;
+    width: 80vw;
+ 
+  }
+  
+}
