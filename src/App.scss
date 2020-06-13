@@ -33,7 +33,13 @@ article{
   width: 30vw;
 }
 button{
+  font-size: 18px;
   width: 15vw;
+  height: 50px;
+  border: 0px;
+  border-radius: 10px;
+  background-color: #A67041;
+  color: white;
 }
 .image-container{
   width: 80vw;
@@ -70,3 +76,40 @@ button{
     opacity: 0;
   }
 }
+.second-section{
+  width: 100vw;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  .radio-image{
+    left: -5px;
+    position: absolute;
+    z-index: 0;
+    img{
+      width: 600px;
+      height: 450px;
+    }
+  }
+  .article-container{
+    margin-left: 45vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+  }
+}
+// article{
+//   position: relative;
+//   text-align: center;
+//   width: 45vw;
+// }
+// h3{
+//   position: relative;
+//   text-align: center;
+// }
